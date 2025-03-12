@@ -1,0 +1,20 @@
+version: '3'
+services:
+  python-app:
+    build: .
+    dockerfile: BetterDocerFile
+    ports:
+      - '80:8000'
+    depends_on:
+      - redis
+      - postgres_host
+
+  postgres_host:
+    image: postgres:12
+    ports:
+      - '5432:5433'
+    environment:
+      POSTGRES_DB: postgres_db
+      POSTGRES_USER: postgres_user
+      POSTGRES_PASSWORD: postgres_password
+    
