@@ -3,7 +3,7 @@
 FROM python:3.10
 
 # Встановимо змінну середовища
-ENV APP_HOME /app
+ENV APP_HOME=/app
 
 # Встановимо робочу директорію всередині контейнера
 WORKDIR $APP_HOME
@@ -18,4 +18,4 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # Запустимо наш застосунок всередині контейнера
-ENTRYPOINT ["python", "main.py"]
+CMD ["python3", "main.py"]
